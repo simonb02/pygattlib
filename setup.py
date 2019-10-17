@@ -21,7 +21,7 @@ if sys.platform.startswith('linux'):
 
     if sys.version_info.major == 3:
         python_version = sys.version_info
-        if platform.dist()[0] == 'Arch'
+        if platform.linux_distribution()[0] == 'arch':
             boost_libs= ['boost_python-py'+str(python_version[0])+str(python_version[1])]
         else:
             boost_libs = ["boost_python-py3"+str(sys.version_info.minor)]
