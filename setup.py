@@ -4,6 +4,7 @@
 import sys
 import subprocess
 from setuptools import setup, Extension
+import platform
 
 extension_modules = list()
 
@@ -19,7 +20,11 @@ if sys.platform.startswith('linux'):
     glib_libs = [x.strip() for x in glib_libs if x]
 
     if sys.version_info.major == 3:
-        boost_libs = ["boost_python-py3"+str(sys.version_info.minor)]
+        python_version = sys.version_info
+        if platform.dist()[0] == 'Arch'
+            boost_libs= ['boost_python-py'+str(python_version[0])+str(python_version[1])]
+        else:
+            boost_libs = ["boost_python-py3"+str(sys.version_info.minor)]
     else:
         boost_libs = ["boost_python"]
     extension_modules = [
